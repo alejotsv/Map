@@ -3,6 +3,7 @@ package com.java21days;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.geom.Arc2D;
+import java.awt.geom.Ellipse2D;
 import java.awt.geom.GeneralPath;
 import java.awt.geom.Rectangle2D;
 
@@ -20,7 +21,7 @@ public class MapPane extends JPanel {
         comp2D.setColor(Color.WHITE);
         BasicStroke pen = new BasicStroke(2F, BasicStroke.CAP_BUTT, BasicStroke.JOIN_ROUND);
         comp2D.setStroke(pen);
-        for(int ax=0; ax<340; ax+=10){
+        for(int ax=0; ax<=350; ax+=10){
             for(int ay=0; ay<340; ay+=10){
                 Arc2D.Float wave = new Arc2D.Float(ax, ay, 10, 10, 0, -180, Arc2D.OPEN);
                 comp2D.draw(wave);
@@ -48,5 +49,16 @@ public class MapPane extends JPanel {
         fl.lineTo(12F, 37F);
         fl.closePath();
         comp2D.fill(fl);
+
+//        Draw Mickey
+        comp2D.setColor(Color.BLACK);
+        BasicStroke pen2 = new BasicStroke();
+        comp2D.setStroke(pen2);
+        Ellipse2D.Float e1 = new Ellipse2D.Float(235, 140, 15, 15);
+        Ellipse2D.Float e2 = new Ellipse2D.Float(225, 130, 15, 15);
+        Ellipse2D.Float e3 = new Ellipse2D.Float(245, 130, 15, 15);
+        comp2D.fill(e1);
+        comp2D.fill(e2);
+        comp2D.fill(e3);
     }
 }
